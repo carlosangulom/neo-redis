@@ -1,0 +1,76 @@
+module.exports = `
+CREATE (c1:Cliente { RFC: "RFC0001", nombre: "Checo Pérez", celular: "1234567890" })
+CREATE (c2:Cliente { RFC: "RFC0002", nombre: "Luis García", celular: "2345678901" })
+CREATE (c3:Cliente { RFC: "RFC0003", nombre: "Ana García", celular: "3456789012" })
+CREATE (c4:Cliente { RFC: "RFC0004", nombre: "Javier Moreno", celular: "4567890123" })
+CREATE (c5:Cliente { RFC: "RFC0005", nombre: "Laura Sánchez", celular: "5678901234" })
+
+CREATE (o1:Obra { idObra: "ID0001", descripcion: "Obra Uno", costo_base: 10000 })
+CREATE (o2:Obra { idObra: "ID0002", descripcion: "Obra Dos", costo_base: 15000 })
+CREATE (o3:Obra { idObra: "ID0003", descripcion: "Obra Tres", costo_base: 20000 })
+CREATE (o4:Obra { idObra: "ID0004", descripcion: "Obra Cuatro", costo_base: 25000 })
+CREATE (o5:Obra { idObra: "ID0005", descripcion: "Obra Cinco", costo_base: 30000 })
+
+CREATE (e1:Empleado {RFC:"ERFC0001", nombre: "Juan Lopez", celular:"3111234567", actividades:["Electricidad", "Plomería"], pago: 9200})
+CREATE (e2:Empleado {RFC:"ERFC0002", nombre: "Pedro Ramirez", celular:"3112345678", actividades:["Carpintería", "Pintura"], pago: 8350})
+CREATE (e3:Empleado {RFC:"ERFC0003", nombre: "José Gonzalez", celular:"3113456789", actividades:["Albañilería", "Electricidad"], pago: 11000})
+CREATE (e4:Empleado {RFC:"ERFC0004", nombre: "Luis Hernandez", celular:"3114567890", actividades:["Plomería", "Carpintería"], pago: 9500})
+CREATE (e5:Empleado {RFC:"ERFC0005", nombre: "Antonio Perez", celular:"3115678901", actividades:["Electricidad", "Pintura"], pago: 7400})
+CREATE (e6:Empleado {RFC:"ERFC0006", nombre: "Jorge Martinez", celular:"3116789012", actividades:["Carpintería", "Plomería"], pago: 8000})
+CREATE (e7:Empleado {RFC:"ERFC0007", nombre: "Carlos Garcia", celular:"3117890123", actividades:["Albañilería", "Electricidad"], pago: 11800})
+CREATE (e8:Empleado {RFC:"ERFC0008", nombre: "Francisco Chavez", celular:"3118901234", actividades:["Pintura", "Carpintería"], pago: 6700})
+CREATE (e9:Empleado {RFC:"ERFC0009", nombre: "Mario Rodriguez", celular:"3119012345", actividades:["Electricidad", "Albañilería"], pago: 10500})
+CREATE (e10:Empleado {RFC:"ERFC0010", nombre: "Gabriel Flores", celular:"3110123456", actividades:["Plomería", "Carpintería"], pago: 9150})
+CREATE (e11:Empleado {RFC:"ERFC0011", nombre: "Miguel Torres", celular:"3111234567", actividades:["Albañilería", "Electricidad"], pago: 12500})
+CREATE (e12:Empleado {RFC:"ERFC0012", nombre: "Adrian Vargas", celular:"3112345678", actividades:["Pintura", "Carpintería"], pago: 7900})
+CREATE (e13:Empleado {RFC:"ERFC0013", nombre: "Hector Diaz", celular:"3113456789", actividades:["Plomería", "Albañilería"], pago: 11200})
+CREATE (e14:Empleado {RFC:"ERFC0014", nombre: "Daniel Gomez", celular:"3114567890", actividades:["Electricidad", "Carpintería"], pago: 8800})
+CREATE (e15:Empleado {RFC:"ERFC0015", nombre: "Roberto Reyes", celular:"3115678901", actividades:["Albañilería", "Pintura"], pago: 9500})
+CREATE (e16:Empleado {RFC:"ERFC0016", nombre: "Emilio Cruz", celular:"3116789012", actividades:["Carpintería", "Plomería"], pago: 8500})
+CREATE (e17:Empleado { RFC: "ERFC0017", nombre: "Hugo Pérez", celular: "3117890123", actividades:
+["Carpintería", "Albañilería", "Pintura"], pago: 11350 })
+CREATE (e18:Empleado { RFC: "ERFC0018", nombre: "Andrés Ramírez", celular: "3114567890", actividades:
+["Electricidad", "Plomería"], pago: 9900 })
+CREATE (e19:Empleado { RFC: "ERFC0019", nombre: "Cristina Torres", celular: "3112345678", actividades:
+["Albañilería"], pago: 7100 })
+CREATE (e20:Empleado { RFC: "ERFC0020", nombre: "Isabel Medina", celular: "3118901234", actividades:
+["Electricidad", "Plomería"], pago: 11000 })
+
+// Asociar Cliente con Obras
+
+CREATE (c1)-[:TIENE]->(o1)
+CREATE (c2)-[:TIENE]->(o2)
+CREATE (c5)-[:TIENE]->(o3)
+CREATE (c4)-[:TIENE]->(o5)
+CREATE (c1)-[:TIENE]->(o4)
+
+// Asociar Obras con Empleados
+
+CREATE (o1)-[:Emplea]->(e1)
+CREATE (o1)-[:Emplea]->(e2)
+CREATE (o1)-[:Emplea]->(e3)
+CREATE (o1)-[:Emplea]->(e4)
+CREATE (o1)-[:Emplea]->(e5)
+CREATE (o2)-[:Emplea]->(e1)
+CREATE (o2)-[:Emplea]->(e6)
+CREATE (o2)-[:Emplea]->(e7)
+CREATE (o2)-[:Emplea]->(e8)
+CREATE (o2)-[:Emplea]->(e9)
+CREATE (o2)-[:Emplea]->(e19)
+CREATE (o3)-[:Emplea]->(e20)
+CREATE (o3)-[:Emplea]->(e10)
+CREATE (o3)-[:Emplea]->(e11)
+CREATE (o3)-[:Emplea]->(e19)
+CREATE (o3)-[:Emplea]->(e12)
+CREATE (o3)-[:Emplea]->(e13)
+CREATE (o4)-[:Emplea]->(e2)
+CREATE (o4)-[:Emplea]->(e6)
+CREATE (o4)-[:Emplea]->(e14)
+CREATE (o4)-[:Emplea]->(e15)
+CREATE (o4)-[:Emplea]->(e16)
+CREATE (o5)-[:Emplea]->(e3)
+CREATE (o5)-[:Emplea]->(e7)
+CREATE (o5)-[:Emplea]->(e11)
+CREATE (o5)-[:Emplea]->(e17)
+CREATE (o5)-[:Emplea]->(e18)
+`;

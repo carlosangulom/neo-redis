@@ -1,0 +1,20 @@
+{
+  "name": "neo-redis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "neo4j-driver": "^5.8.0",
+    "nodemon": "^2.0.22",
+    "redis": "^4.6.6"
+  }
+}
