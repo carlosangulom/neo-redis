@@ -2,7 +2,7 @@ const redis = require("redis");
 const client = redis.createClient({
   socket: {
     port: 6379,
-    host: "172.17.0.1",
+    host: "172.17.0.2",
   },
 });
 const cache = async function (req, res, next) {
@@ -16,7 +16,12 @@ const cache = async function (req, res, next) {
       fecha.getMinutes() +
       "-" +
       fecha.getSeconds(),
-    " - " + req.method + " " + req.route.path
+    " - " +
+      req.method +
+      " " +
+      req.route.path +
+      " - Body: " +
+      JSON.stringify(req.body)
   );
   await client.disconnect();
   next();
