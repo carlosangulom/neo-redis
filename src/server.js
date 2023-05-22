@@ -12,8 +12,8 @@ const PORT = 3000;
 
 const createData = async () => {
   var driver = neo4j.driver(
-    "neo4j://172.17.0.1",
-    neo4j.auth.basic("neo4j", "neo4j")
+    "neo4j+s://a95af617.databases.neo4j.io",
+    neo4j.auth.basic("neo4j", "4xVF28_zyPA2889T0oTV1ZR_nYpvx8d7G7fsFosNS6k")
   );
 
   const session = driver.session();

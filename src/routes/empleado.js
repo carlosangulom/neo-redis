@@ -3,8 +3,8 @@ var router = express.Router();
 const neo4j = require("neo4j-driver");
 const cache = require("./cache");
 var driver = neo4j.driver(
-  "neo4j://172.17.0.1",
-  neo4j.auth.basic("neo4j", "neo4j")
+  "neo4j+s://a95af617.databases.neo4j.io",
+  neo4j.auth.basic("neo4j", "4xVF28_zyPA2889T0oTV1ZR_nYpvx8d7G7fsFosNS6k")
 );
 
 // Q2. Se requieren consultar todos los datos de un empleado
